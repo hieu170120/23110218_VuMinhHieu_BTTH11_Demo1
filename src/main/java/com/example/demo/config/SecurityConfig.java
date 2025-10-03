@@ -45,15 +45,16 @@ public class SecurityConfig {
                      .requestMatchers("/customer/{id}").hasAnyRole("USER", "ADMIN")  // Cả USER và ADMIN có thể truy cập /customer/{id}
                      .anyRequest().authenticated()  // Các yêu cầu khác phải được xác thực
 			)
-			.formLogin(Customizer.withDefaults())
+			.formLogin(form -> form
+				.defaultSuccessUrl("/home", true)
+			)
 			.build();
 	}
 	@Bean
-	AuthenticationProvider authenticationProvider() {
+	public AuthenticationProvider authenticationProvider(UserDetailsService userDetailsService, PasswordEncoder passwordEncoder) {
 		DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
-		authProvider.setUserDetailsService(userDetailsService(passwordEncoder()));
-		authProvider.setPasswordEncoder(passwordEncoder());
-		
-		return new DaoAuthenticationProvider();
+		authProvider.setUserDetailsService(userDetailsService);
+		authProvider.setPasswordEncoder(passwordEncoder);
+		return authProvider;
 	}
 }
