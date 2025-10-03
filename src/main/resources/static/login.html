@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <script src="mainjs.js"></script>
+</head>
+<body>
+    <h2>Login</h2>
+    <form id="loginForm">
+        <label>Username: <input type="text" id="username" required></label><br>
+        <label>Password: <input type="password" id="password" required></label><br>
+        <button type="submit">Login</button>
+    </form>
+    <div id="loginError" style="color:red;"></div>
+    <p>Don't have an account? <a href="#" onclick="showRegister()">Register here</a></p>
+    <div id="registerSection" style="display:none;">
+        <h2>Register</h2>
+        <form id="registerForm">
+            <label>Username: <input type="text" id="regUsername" required></label><br>
+            <label>Email: <input type="email" id="regEmail" required></label><br>
+            <label>Password: <input type="password" id="regPassword" required></label><br>
+            <label>Name: <input type="text" id="regName" required></label><br>
+            <button type="submit">Register</button>
+        </form>
+        <div id="registerError" style="color:red;"></div>
+        <div id="registerSuccess" style="color:green;"></div>
+    </div>
+</body>
+</html>

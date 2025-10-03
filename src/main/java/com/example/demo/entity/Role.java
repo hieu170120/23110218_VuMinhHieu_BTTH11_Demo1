@@ -17,8 +17,7 @@ public class Role implements Serializable {
     @Column(name = "role_name", length = 50, columnDefinition = "nvarchar(50) not null")
     private String name;
 
-	public String getName() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    public String getName() {
+        return name;
+    }
 }
